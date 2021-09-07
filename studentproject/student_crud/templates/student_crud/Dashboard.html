@@ -1,0 +1,43 @@
+{%  extends 'student_crud/main.html' %}
+
+{% block content %}
+
+<br>
+
+<div class="row">
+	<div class="col-md-7 container">
+		<h5>Student List</h5>
+		<hr>
+		<a class="btn btn-primary  btn-sm" href="{% url 'create_student' %}"><i class="fa fa-plus"></i> Create Student</a>
+		<br><br>
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th><i class="fa fa-graduation-cap" aria-hidden="true"></i>Name</th>
+					<th><i class="fa fa-question-circle" aria-hidden="true"></i>Roll no</th>
+					<th><i class="fa fa-question-circle" aria-hidden="true"></i>Class standard</th>
+					<th><i class="fa fa-question-circle" aria-hidden="true"></i>School name </th>
+					<th><i class="fa fa-question-circle" aria-hidden="true"></i>mobile</th>
+					<th><i class="fa fa-question-circle" aria-hidden="true"></i>Address </th>
+					<th><i class="fa fa-pencil-square" aria-hidden="true"></i> Update</th>
+					<th><i class="fa fa-trash" aria-hidden="true"></i> Remove</th>
+				</tr>
+				{% for student in students %}
+					<tr>
+						<td>{{student.name}}</td>
+						<td>{{student.roll_no}}</td>
+						<td>{{student.class_standard}}</td>
+						<td>{{student.school_name}}</td>
+						<td>{{student.mobile}}</td>
+						<td>{{student.Address}}</td>
+						<td><a href="#" class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i> Update</a></td>
+						<td><a href="#" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a></td>
+                    </tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+
+</div>
+
+{% endblock %}

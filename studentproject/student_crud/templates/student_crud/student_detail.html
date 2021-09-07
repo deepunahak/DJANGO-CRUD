@@ -1,0 +1,28 @@
+{%  extends 'student_crud/main.html' %}
+{% load static %}
+{% block content %}
+
+	<div class="row">
+		<div class="col-md-7 container">
+			<br>
+			<div class="d-flex justify-content-center">
+				<form action="" method="POST">
+
+					{% csrf_token %}
+					{% for field in form %}
+						{{field.as_p}}
+
+
+					{% endfor %}
+					<div class="d-flex justify-content-center">
+					<input class="btn btn-success" type="submit" name="Submit">
+					</div>
+				</form>
+
+			</div>
+		</div>
+	</div>
+	</div>
+</div>
+
+{% endblock %}

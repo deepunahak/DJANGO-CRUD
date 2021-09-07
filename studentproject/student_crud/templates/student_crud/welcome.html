@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>welcome</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>body, html {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			background: #e7e9ea !important;
+		}</style>
+
+</head>
+<body>
+
+<div class="container-fluid">
+	<div class="mt-4">
+		<div class="d-flex justify-content-center">
+			<h1>Welcome to Student Application</h1>
+		</div>
+	</div>
+
+	<div class="mt-4">
+		<div  class="d-flex justify-content-center links">
+			Don't have an account? <a href="{% url 'register' %}" class="ml-2">Sign Up</a>
+		</div>
+	</div>
+	<div class="mt-4">
+		<div class="d-flex justify-content-center links">
+			Already have an account? <a href="{% url 'login' %}" class="ml-2">Login</a>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-7 container">
+			<h5>Student list</h5>
+			<div class="card card-body">
+				<table class="table table-sm">
+					<tr>
+						<th><i class="fa fa-graduation-cap" aria-hidden="true"></i>Name </th>
+						<th><i class="fa fa-question-circle" aria-hidden="true"></i> Roll no</th>
+						<th><i class="fa fa-question-circle" aria-hidden="true"></i> Class standard</th>
+						<th><i class="fa fa-question-circle" aria-hidden="true"></i> School name </th>
+						<th><i class="fa fa-question-circle" aria-hidden="true"></i> mobile</th>
+						<th><i class="fa fa-question-circle" aria-hidden="true"></i> Address </th>
+					</tr>
+
+					{% for student in students %}
+						<tr>
+
+							<td>{{student.name}}</td>
+							<td>{{student.roll_no}}</td>
+							<td>{{student.class_standard}}</td>
+							<td>{{student.school_name}}</td>
+							<td>{{student.mobile}}</td>
+							<td>{{student.Address}}</td>
+						</tr>
+					{% endfor %}
+				</table>
+			</div>
+		</div>
+
+	</div>
+</div>
+</body>
+</html>
